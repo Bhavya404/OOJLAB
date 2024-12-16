@@ -14,9 +14,9 @@ class Book {
 
     void setDetails() {
         System.out.println("Enter Book Name: ");
-        name = in.nextLine();  // Changed to nextLine() to capture full name
+        name = in.nextLine();  
         System.out.println("Enter Author Name: ");
-        author = in.nextLine();  // Changed to nextLine() to capture full author name
+        author = in.nextLine(); 
         System.out.println("Price of the Book: ");
         price = in.nextInt();
         System.out.println("No of pages: ");
@@ -40,7 +40,7 @@ public class Bookmain {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter number of books:");
         int noBook = in.nextInt();
-        in.nextLine(); // Clear the newline character
+        in.nextLine(); 
 
         Book[] bk = new Book[noBook];
         for (int i = 0; i < noBook; i++) {
