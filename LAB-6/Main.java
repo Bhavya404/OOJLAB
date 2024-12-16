@@ -51,7 +51,7 @@ public class Main
             System.out.println("Student " + (i + 1) + ":");
             for (int j = 0; j < 5; j++) 
             {
-                int finalMarks = internals[i].internalMarks[j] + (externals[i].seeMarks[j] / 2);
+                int finalMarks = ((internals[i].internalMarks[j] + externals[i].seeMarks[j]) / 2);
                 System.out.println("Course " + (j + 1) + ": " + finalMarks);
             }
         }
