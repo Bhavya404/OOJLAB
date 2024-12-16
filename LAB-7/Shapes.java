@@ -1,68 +1,73 @@
-interface Shapess
+import java.util.Scanner;
+
+interface Polygon 
 {
-	default public void getperi(int n, int l)
-	{
-		System.out.println("Perimeter of the regular polygon having "+n+" sides is "+(n*l));
-	}
-	public void getarea();
+    double getPerimeter();
+    double getArea();
 }
-class Rect implements Shapess
+
+class Square implements Polygon 
 {
-	private int a;
-	private int b;
-	public Rect(int a, int b)
-	{
-		this.a=a;
-		this.b=b;
-	}
-	@Override
-	public void getarea(int a,int b)
-	{
-		System.out.println("The area is "+(a*b));
-	}
+    private double side;
+
+    Square(double side) 
+    {
+        this.side = side;
+    }
+
+    @Override
+    public double getPerimeter() 
+    {
+        return 4 * side;
+    }
+
+    @Override
+    public double getArea() 
+    {
+        return side * side;
+    }
 }
-class Square implements Shapess
+
+class Triangle implements Polygon 
 {
-	private int a;
-	private int b;
-	public Square(int a, int b)
-	{
-		this.a=a;
-		this.b=b;
-	}
-	@Override
-	public void getarea()
-	{
-		System.out.println("The area is "+(a*b));
-	}
+    private double side;
+
+    Triangle(double side) 
+    {
+        this.side = side;
+    }
+
+    @Override
+    public double getPerimeter() 
+    {
+        return 3 * side;
+    }
+
+    @Override
+    public double getArea() {
+        return (Math.sqrt(3) / 4) * Math.pow(side, 2);
+    }
 }
-class Triangle implements Shapess
+
+public class Shapes 
 {
-	private double l;
-	private double b;
-	public Triangle(int l, int b){
-		this.l=l;
-		this.b=b;
-	}
-	@Override
-	public void getarea(){
-		System.out.println("The area is "+(0.5*l*b));
-	}
-}
-class Shapes
-{
-	public static void main(String args[])
+    public static void main(String[] args) 
 	{
-		Shapess sq= new Square(4 ,4);
-		sq.getperi(2, 4);
-		sq.getarea();
-    Shapess t = new Triangle(3,6);
-    t.getperi(3, 6);
-    t.getper();
-    Shapess rt = new Rectangle(4,8);
-    rt.getperi(4, 8);
-    rt.getper();
-	}
+        double s, t;
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the length of side of square: ");
+        s = sc.nextDouble();  
+
+        System.out.print("Enter the length of side of triangle: ");
+        t = sc.nextDouble();
+
+        Square square = new Square(s);
+        System.out.println("Square Perimeter: " + square.getPerimeter());
+        System.out.println("Square Area: " + square.getArea());
+
+        Triangle tri = new Triangle(t);
+        System.out.println("Triangle Perimeter: " + tri.getPerimeter());
+        System.out.println("Triangle Area: " + tri.getArea());
+        sc.close();
+    }
 }
-		
-		
